@@ -1,0 +1,256 @@
+.order-status-page {
+  min-height: 100vh;
+  background: var(--bg-color);
+  padding: 60px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.order-status-loading {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.order-status-card {
+  max-width: 620px;
+  margin: 0 auto;
+  background: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  padding: 48px 44px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+}
+
+.order-status-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  letter-spacing: 4px;
+  font-weight: 500;
+  margin-bottom: 32px;
+  color: var(--text-main);
+}
+
+.order-status-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  margin: 0 0 4px;
+  color: var(--text-main);
+}
+
+.order-status-sub {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin: 0 0 20px;
+}
+
+.order-status-pill {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  border-radius: 999px;
+  background: #f5f5f5;
+  color: #6b6b6b;
+  margin-bottom: 32px;
+}
+
+.order-status-pill--paid {
+  background: #f0fdf4;
+  color: #22c55e;
+}
+
+.order-status-pill--processing,
+.order-status-pill--shipped {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.order-status-pill--delivered {
+  background: #f0fdf4;
+  color: #16a34a;
+}
+
+.order-status-pill--cancelled,
+.order-status-pill--refunded {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+/* ---- steps ---- */
+
+.order-status-steps {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 32px 0 40px;
+  position: relative;
+}
+
+.order-status-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  position: relative;
+  opacity: 0.4;
+}
+
+.order-status-step.is-done {
+  opacity: 1;
+}
+
+.order-status-step::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: -50%;
+  right: 50%;
+  height: 1px;
+  background: var(--border-color);
+  z-index: 0;
+}
+
+.order-status-step:first-child::before {
+  display: none;
+}
+
+.order-status-step.is-done::before {
+  background: var(--accent-gold);
+}
+
+.order-status-step-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--border-color);
+  z-index: 1;
+  position: relative;
+}
+
+.order-status-step.is-done .order-status-step-dot {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+}
+
+.order-status-step.is-current .order-status-step-dot {
+  box-shadow: 0 0 0 4px rgba(191, 160, 104, 0.2);
+}
+
+.order-status-step-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.order-status-step.is-done .order-status-step-label {
+  color: var(--text-main);
+}
+
+/* ---- sections ---- */
+
+.order-status-section {
+  padding: 24px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.order-status-section h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin: 0 0 14px;
+}
+
+.order-status-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.order-status-items li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-size: 13px;
+  color: var(--text-main);
+  border-bottom: 1px solid #f5f3f0;
+}
+
+.order-status-items li:last-child {
+  border-bottom: none;
+}
+
+.order-status-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  margin-top: 8px;
+  border-top: 1px solid var(--border-color);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.order-status-total strong {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: var(--text-main);
+  text-transform: none;
+  letter-spacing: -0.3px;
+}
+
+.order-status-address {
+  font-size: 13px;
+  color: var(--text-main);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.order-status-mono {
+  font-family: monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.order-status-footer {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.order-status-footer a {
+  color: var(--text-main);
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .order-status-card {
+    padding: 32px 24px;
+  }
+
+  .order-status-title {
+    font-size: 22px;
+  }
+
+  .order-status-step-label {
+    font-size: 9px;
+  }
+}

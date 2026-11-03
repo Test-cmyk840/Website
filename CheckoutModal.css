@@ -1,0 +1,430 @@
+/* =========================================
+   Checkout modal — Fonepay Brand Styling
+   ========================================= */
+
+:root {
+  --fonepay-red: #ce2027;
+  --fonepay-red-hover: #a81a1f;
+  --fonepay-black: #0a0d12;
+  --fonepay-white: #ffffff;
+  --border-light: #ecece7;
+  --border-dark: #dedfd7;
+  --text-muted: #77786f;
+  --bg-light: #fafaf7;
+}
+
+.checkout-overlay,
+.checkout-overlay * {
+  box-sizing: border-box;
+}
+
+.checkout-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 3500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(10, 13, 18, 0.6);
+  animation: checkoutFade 0.18s ease-out;
+}
+
+.checkout-modal {
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  max-height: 90dvh;
+  overflow-y: auto;
+  position: relative;
+  background: var(--fonepay-white);
+  border-radius: 6px;
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.2);
+  color: var(--fonepay-black);
+  font-family: 'Inter', sans-serif;
+  animation: checkoutEnter 0.22s ease-out;
+}
+
+.checkout-modal::-webkit-scrollbar {
+  width: 6px;
+}
+.checkout-modal::-webkit-scrollbar-thumb {
+  background: #d8d8d2;
+  border-radius: 4px;
+}
+
+.checkout-close {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 26px;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s ease;
+}
+.checkout-close:hover {
+  color: var(--fonepay-black);
+}
+
+/* THE FIX: Adding padding to the content wrapper */
+.checkout-content {
+  padding: 40px 32px;
+}
+
+.checkout-modal h2 {
+  margin: 0 0 6px;
+  color: var(--fonepay-black);
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.checkout-sub {
+  margin: 0 0 28px;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.checkout-error {
+  margin: 0 0 20px;
+  padding: 12px 14px;
+  border: 1px solid #f4cccc;
+  background: #fdf2f2;
+  color: #b91c1c;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 4px;
+}
+
+/* Form */
+.checkout-form {
+  width: 100%;
+}
+
+.checkout-form label {
+  display: block;
+  margin-bottom: 20px;
+  color: var(--fonepay-black);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+.checkout-form input,
+.checkout-form textarea {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px;
+  border: 1px solid var(--border-dark);
+  border-radius: 4px;
+  outline: none;
+  background: var(--fonepay-white);
+  color: var(--fonepay-black);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.checkout-form input::placeholder,
+.checkout-form textarea::placeholder {
+  color: #a1a198;
+}
+
+.checkout-form input:focus,
+.checkout-form textarea:focus {
+  border-color: var(--fonepay-red);
+  box-shadow: 0 0 0 3px rgba(206, 32, 39, 0.1);
+}
+
+.checkout-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.checkout-hint {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 10px;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.6;
+}
+
+/* Order summary */
+.checkout-summary-box {
+  margin-top: 24px;
+  padding: 20px 0 0;
+  border-top: 1px solid var(--border-dark);
+}
+
+.summary-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 14px;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.summary-line > span:last-child {
+  color: var(--fonepay-black);
+  font-weight: 500;
+}
+
+.summary-line.total-line {
+  align-items: center;
+  margin: 20px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+  color: var(--fonepay-black);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.summary-line.total-line strong {
+  color: var(--fonepay-black);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+/* Buttons */
+.checkout-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 24px;
+  padding: 14px;
+  border: 1px solid var(--fonepay-red);
+  border-radius: 4px;
+  background: var(--fonepay-red);
+  color: var(--fonepay-white);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.checkout-submit:hover:not(:disabled) {
+  background: var(--fonepay-red-hover);
+}
+
+.checkout-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.checkout-submit--ghost {
+  margin-top: 10px;
+  border-color: var(--border-dark);
+  background: var(--fonepay-white);
+  color: var(--fonepay-black);
+}
+
+.checkout-submit--ghost:hover:not(:disabled) {
+  border-color: #bfc1b5;
+  background: var(--bg-light);
+}
+
+/* Bank selection */
+.bank-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  max-height: 300px;
+  overflow-y: auto;
+  margin: 0 0 24px;
+  padding: 2px;
+}
+
+.bank-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 110px;
+  padding: 14px 8px;
+  border: 1px solid var(--border-dark);
+  border-radius: 4px;
+  background: var(--fonepay-white);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bank-tile:hover {
+  border-color: #f0a5a8;
+  background: #fff9f9;
+}
+
+.bank-tile.selected {
+  border-color: var(--fonepay-red);
+  background: #fff5f5;
+  box-shadow: 0 0 0 1px var(--fonepay-red);
+}
+
+.bank-tile img,
+.bank-tile-placeholder {
+  width: 44px;
+  height: 44px;
+  border-radius: 4px;
+  object-fit: contain;
+  background: #f7f7f3;
+}
+
+.bank-tile img {
+  padding: 4px;
+}
+
+.bank-tile-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fonepay-black);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.bank-tile > span:last-child {
+  color: #55574f;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.bank-tile.selected > span:last-child {
+  color: var(--fonepay-black);
+  font-weight: 600;
+}
+
+/* QR Payment */
+.checkout-qr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 0 24px;
+  padding: 24px;
+  border: 1px solid var(--border-dark);
+  border-radius: 6px;
+  background: var(--bg-light);
+}
+
+.checkout-qr svg {
+  padding: 8px;
+  background: var(--fonepay-white);
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.checkout-ref {
+  margin: 14px 0;
+  color: var(--text-muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+.checkout-ref strong {
+  color: var(--fonepay-black);
+}
+
+.checkout-pending {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--fonepay-red);
+  animation: checkoutPulse 1.5s ease-in-out infinite;
+}
+
+/* Success / Failure */
+.checkout-status {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.checkout-status-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 24px;
+  border: 2px solid #22c55e;
+  border-radius: 50%;
+  color: #22c55e;
+  font-size: 28px;
+}
+
+.checkout-status h2 {
+  font-size: 24px;
+}
+
+.checkout-status .checkout-sub {
+  margin-bottom: 30px;
+}
+
+/* Motion */
+@keyframes checkoutFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes checkoutEnter {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes checkoutPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* Mobile */
+@media (max-width: 520px) {
+  .checkout-overlay {
+    padding: 10px;
+  }
+  .checkout-content {
+    padding: 32px 24px;
+  }
+  .bank-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

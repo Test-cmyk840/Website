@@ -1,0 +1,108 @@
+.lookbook-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(252, 250, 248, 0.98); /* Blends with your cream background */
+  backdrop-filter: blur(10px);
+  z-index: 5000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.lookbook-container {
+  position: relative;
+  width: 90vw;
+  max-width: 1200px;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lookbook-close {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.lookbook-close:hover {
+  transform: scale(1.1);
+}
+
+.lookbook-slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lookbook-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+  animation: imageFade 0.4s ease-out;
+}
+
+@keyframes imageFade {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.lookbook-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--border-color);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+  transition: all var(--transition-fast);
+  z-index: 10;
+}
+
+.lookbook-arrow:hover {
+  background: var(--text-main);
+  color: var(--white);
+}
+
+.lookbook-arrow.left { left: 20px; }
+.lookbook-arrow.right { right: 20px; }
+
+.lookbook-dots {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border-color);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.dot.active {
+  background: var(--text-main);
+  transform: scale(1.2);
+}

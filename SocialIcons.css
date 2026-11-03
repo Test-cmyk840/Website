@@ -1,0 +1,38 @@
+/* =========================================================
+   Footer social icons (Instagram, Facebook, TikTok)
+   Self-contained: works on its own, no other CSS needed.
+   Icons are dark by default and turn red when hovered.
+   ========================================================= */
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0 16px;
+}
+
+.footer-col .social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #d9d2cf;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.footer-col .social-links a:hover,
+.footer-col .social-links a:focus-visible {
+  border-color: #b3141e;
+  background-color: #b3141e;
+  color: #ffffff;
+}
+
+.footer-col .social-links a:focus-visible {
+  outline: 2px solid #b3141e;
+  outline-offset: 3px;
+}
